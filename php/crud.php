@@ -1,6 +1,6 @@
 <?php
     require_once("subject.php");
-    require_once("jornal.php");
+    require_once("journal.php");
 
     $httpVerb = $_SERVER('REQUEST_METHOD');
 
@@ -23,4 +23,4 @@
             break;
     }
 
->
+?>
