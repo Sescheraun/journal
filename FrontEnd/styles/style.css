@@ -1,3 +1,29 @@
 body {
     background-image: url("../images/Ponyville_at_day.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center botto,;
+    margin: 0;
+    padding: 0;
 }
+
+div.jumbotron {
+    background-image: url("../images/Ponyville_at_day.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center botto,;
+
+}
+
+div.container {
+    background-color: rgba(153, 50, 204, .2) ;
+}
+
+ul.nav {
+    background-color: rgba(15, 15, 95, 0.8);
+    color: silver;
+    }
+
+
