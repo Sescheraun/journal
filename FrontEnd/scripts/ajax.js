@@ -1,22 +1,30 @@
 (($) => { 
-    let crudURL = "localhost/journal/php/crud.php";
+    let crudURL = "/journal/php/crud.php";
     
     $(document).ready( function() {
-        alert("in the function");
-        alert(crudURL);
         // Load Categories
-        $.ajax({
-            "url": crudURL
-            , "method":"GET"
+        $.ajax(
+            {
+            url: crudURL
 
-            , "success":function(result) {
-                alert(result);
+            , type:"GET"
+
+            , data: "?table=category"
+            
+            , beforeSend: function() {
+                console.log("Sending ajax reguest")
             }
-            , "error":function() {
-                alert("error");
+
+            , success:function(data) {
+                console.log("Data recieved: " + data);
             }
-            , "complete":function() {
-                alert("Call complete");
+
+            , error:function(response) {
+                console.log("error: " + response);
+            }
+
+            , complete:function() {
+                console.log("Call complete");
             }
         })
 
