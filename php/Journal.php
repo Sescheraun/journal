@@ -31,6 +31,10 @@
         
 
 
+        /********************************************************************************
+        **                                Read Methods                                 **
+        ********************************************************************************/
+
 
         /** 
          * This is the read all method.
@@ -51,7 +55,13 @@
          * 
          * @return the enttry that matches the id being searched for
          */
+        public function readById($id){
+            $whereClause = " WHERE id = ? ";
 
+            $bindable = $id;
+
+            return $this->read($whereClause, $bindable);
+        }
          
 
          /**
@@ -59,6 +69,14 @@
           * 
           * @return a list of entries with the selected subject.
           */
+
+          public function readBySubject($subject){
+              $whereClause = " WHERE id = ? ";
+
+              $bindable = $subject;
+
+              return $this->read($whereClause, $bindable);
+          }
 
 
         private function read($whereClause, $bindable) {
