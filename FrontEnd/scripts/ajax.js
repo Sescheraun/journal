@@ -9,7 +9,7 @@
 
             , type:"GET"
 
-            , data: "?table=category"
+            , data: "table=category"
             
             , beforeSend: function() {
                 console.log("Sending ajax reguest")
