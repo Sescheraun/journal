@@ -13,10 +13,25 @@ include_once('Journal.php');
 $dBase = new Database();
 $db = $dBase->getConnection();
 
+//Call the read method bassed on what was asked for
 
 $journal = new Journal($db);
-$result = $journal->readAll();
+if (isset($_GET['id'])){
+    //readByID not ready yet
+    echo json_encode("{'data':{'result':'Read by ID not ready yet'}}");
+    $result = "";
+    die;
+} else if(isset($_GET['subject'])){
+    //readBySubject not ready yet
+    echo json_encode("{'data':{'result':'Read by subject not ready yet'}}");
+    $result = "";
+    die;
+} else {
+    $result = $journal->readAll();
+}
 
+
+/** Process the results and return as JSON */
 $rows = $result->rowCount();
 
 if ($rows > 0) {
@@ -38,7 +53,7 @@ if ($rows > 0) {
 
     echo json_encode($journalArray);
 } else {
-    echo json_encode("{'data':{'result':'There were no resutls'}}") ;
+    echo json_encode("{'data':{'result':'There were no resutls'}}");
 }
 
 ?>
