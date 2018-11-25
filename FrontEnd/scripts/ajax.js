@@ -1,5 +1,5 @@
 (($) => { 
-    let crudURL = "/journal/php/crud.php";
+    let crudURL = "/journal/php/read.php";
     
     $(document).ready( function() {
         // Load Categories
@@ -12,15 +12,16 @@
             , data: "table=category"
             
             , beforeSend: function() {
-                console.log("Sending ajax reguest")
+                console.log("Sending ajax reguest");
+                console.log(crudURL);
             }
 
             , success:function(data) {
                 console.log("Data recieved: " + data);
             }
 
-            , error:function(response) {
-                console.log("error: " + response);
+            , error:function(xhr, status, error) {
+                console.log("ERROR: " + xhr.responseText);
             }
 
             , complete:function() {
