@@ -5,6 +5,6 @@
     define('DB_PASSWORD', 'root');
     define('DB_NAME', 'journal');
     define('JOURNAL_TABLE', 'journal');
-    define('SUBJECT_TABLE','subject');
+    define('SUBJECT_TABLE','category');
     define('USER_TABLE','user');
 ?>
