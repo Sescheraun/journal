@@ -71,7 +71,7 @@ if ($rows > 0) {
         } else if ($table = "subject") {
             $responseEntry = array(
                 'id' => $id,
-                'subject' => $subject
+                'category' => $category
             );
             //  echo json_encode($responseEntry);
         }
