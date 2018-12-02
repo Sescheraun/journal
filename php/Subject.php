@@ -3,7 +3,7 @@
 
         private $conn;
         private $id;
-        private $Subject;
+        private $category;
 
 
         public function __construct($db) {
@@ -38,13 +38,13 @@
             
             $query = "SELECT "
             .   "id, "
-            .   "subject "
+            .   "category "
             . "FROM "
             .   SUBJECT_TABLE
             . " ORDER by "
-            .   "subject ";
+            .   "category ";
             
-            // echo $query;
+             echo $query;
 
             $stmt = $this->conn->prepare($query);
 
