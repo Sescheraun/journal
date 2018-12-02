@@ -44,7 +44,7 @@
             . " ORDER by "
             .   "category ";
             
-             echo $query;
+            //  echo $query;
 
             $stmt = $this->conn->prepare($query);
 

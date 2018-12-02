@@ -25,9 +25,9 @@ if(isset($_GET['table'])) {
  
 if ($table == "subject") {
     
-    echo"subject";
+    
     $result = $subject->read();
-    echo "subject retrieved";
+  
 
 } else if (isset($_GET['id'])){
     $table = "journal";
