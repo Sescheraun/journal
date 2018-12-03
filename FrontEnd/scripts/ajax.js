@@ -1,5 +1,6 @@
 (($) => { 
     let readURL = "/journal/php/read.php";
+    let postURL = "/journal/php/create.php";
     
     $(document).ready( function() {
         // Load Categories
@@ -20,7 +21,7 @@
                 // console.log(response);
                 let reply = {};
                 reply = response.data;
-                let topics = $("#topics");
+                let topics = $("#newPostTopic");
                 
                 for(loop = 0; loop < reply.length; loop++){
                     
@@ -44,6 +45,37 @@
             , complete:function() {
                 console.log("Call complete");
             }
+        })
+
+
+        // Add a new post
+        $("#addNewPost").on("click", function() {
+            let selectedOption = $("#newPostTopic option:selected");
+            let id = selectedOption.attr("data-id");
+            let post = $.trim($("#newPostContent").val());
+
+            let postData = {"subject": id, "entry": post};
+            $.ajax({ 
+                url:postURL
+                , type: "POST"
+                , data: postData
+                , success: function(response) {
+                    let reply = {};
+                    reply = response;
+                    console.log(reply.data);
+
+                    for(loop = 0; loop < reply.length; loop++){
+                    
+                        let result = reply[loop].result;
+                        console.log(result);
+    
+    
+    
+            
+    
+                    }
+                }
+            })
         })
 
         // // load all entries
