@@ -1,4 +1,4 @@
-<?php 
+ <?php 
     
 
     class Journal {
@@ -28,14 +28,38 @@
                 $this->$property = $value;
             }
         }
-        
+        /********************************************************************************
+        **                                Creat Methods                                **
+        ********************************************************************************/        
 
+        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
+
+        public function create() {
+
+            $query = 'INSERT INTO '
+                . JOURNAL_TABLE 
+                . ' (subject, entry)'
+                . ' VALUES ('
+                . ' :subject,'
+                . ' :entry)';
+            
+            $stmt = $this->conn->prepare($query);
+
+            $this->subject = htmlspecialchars(strip_tags($this->subject));
+            $this->entry = htmlspecialchars(strip_tags($this->entry));
+
+            $stmt -> bindParam(':subject', $this->subject);
+            $stmt -> bindParam(':entry', $this->entry);
+    
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
 
         /********************************************************************************
         **                                Read Methods                                 **
         ********************************************************************************/
-
-
         /** 
          * This is the read all method.
          * 
