@@ -81,7 +81,7 @@ if ($rows > 0) {
 
     echo json_encode($responseArray);
 } else {
-    echo json_encode("{'data':{'result':'There were no resutls'}}");
+    echo json_encode('{"data":{"result":"There were no results"}}');
 }
 
 ?>
