@@ -64,23 +64,25 @@
          * This is the read all method.
          * 
          * @return full array of the undeleted journal entries.
+         * Do not forget the table references in the $whereClause
          */
         
         public function readAll() {
-            $whereClause = " WHERE isDeleted = ? ";
+            $whereClause = " WHERE p.isDeleted = ? ";
 
             $bindable = false;
-
+            
             return $this->read($whereClause, $bindable);
         }
 
         /**
          * This will be the readById
          * 
-         * @return the enttry that matches the id being searched for
+         * @return the enttry that matches the id being searched for.
+         * Do not forget the table references in the $whereClause
          */
         public function readById($id){
-            $whereClause = " WHERE id = ? ";
+            $whereClause = " WHERE p.id = ? ";
 
             $bindable = $id;
 
@@ -92,10 +94,11 @@
           * This will return all entries with a given subject
           * 
           * @return a list of entries with the selected subject.
+         * Do not forget the table references in the $whereClause
           */
 
           public function readBySubject($subject){
-              $whereClause = " WHERE id = ? ";
+              $whereClause = " WHERE p.subject = ? ";
 
               $bindable = $subject;
 
@@ -106,7 +109,7 @@
         private function read($whereClause, $bindable) {
             
             $query = "SELECT "
-            .   "s.subject as subject_description, "
+            .   "c.category as subject_description, "
             .   "p.id, "
             .   "p.subject, "
             .   "p.dateOfEntry, "
@@ -115,13 +118,11 @@
             . "FROM "
             .   JOURNAL_TABLE . " p "
             . "LEFT JOIN "
-            .    "subject s ON p.subject = s.id"
+            .    "category c ON p.subject = c.id"
             . $whereClause
             . "ORDER by "
             .   "p.id DESC";
             
-            // echo $query;
-
             $stmt = $this->conn->prepare($query);
 
             $stmt -> bindParam(1, $bindable);
