@@ -24,11 +24,8 @@ if(isset($_GET['table'])) {
 }
  
 if ($table == "subject") {
-    
-    
     $result = $subject->read();
   
-
 } else if (isset($_GET['id'])){
     $table = "journal";
     //readByID not ready yet
@@ -68,8 +65,7 @@ if ($rows > 0) {
                 , 'subject_ID' => $subject
                 , 'entry' => html_entity_decode($entry)
             );
-            echo $responseEntry;
-
+            
         } else if ($table = "subject") {
             $responseEntry = array(
                 'id' => $id,
