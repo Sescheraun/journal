@@ -62,11 +62,13 @@ if ($rows > 0) {
         extract($rows);
         if ($table == "journal") {
             $responseEntry = array(
-                'id' => $id,
-                'date' => $dateOfEntry,
-                'subject' => $subject_description,
-                'entry' => html_entity_decode($entry)
+                'id' => $id
+                , 'date' => $dateOfEntry
+                , 'subject' => $subject_description
+                , 'subject_ID' => $subject
+                , 'entry' => html_entity_decode($entry)
             );
+            echo $responseEntry;
 
         } else if ($table = "subject") {
             $responseEntry = array(
