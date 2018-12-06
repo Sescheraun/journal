@@ -133,6 +133,38 @@
 
         }
 
+        /********************************************************************************
+        **                                Update Methods                               **
+        ********************************************************************************/        
+
+        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
+
+        public function update() {
+
+            $query = 'UPDATE '
+                . JOURNAL_TABLE 
+                . ' SET '
+                . ' subject = :subject'
+                . ' , entry = :entry'
+                . ' WHERE'
+                . ' id = :id'
+                . ' AND isDeleted = 0';
+            
+            $stmt = $this->conn->prepare($query);
+
+            $this->subject = htmlspecialchars(strip_tags($this->subject));
+            $this->entry = htmlspecialchars(strip_tags($this->entry));
+
+            $stmt -> bindParam(':subject', $this->subject);
+            $stmt -> bindParam(':entry', $this->entry);
+            $stmt -> bindParam(':id', $this->id);
+    
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
+
     
 }
 ?>
