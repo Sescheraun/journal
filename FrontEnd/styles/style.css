@@ -35,7 +35,7 @@ label {
     font-weight: 900;
     font-size: 150%;
 }
-select, span#readPostTopic {
+select, .postTopic {
     font-size: 75%;
     padding: 2px;
 }
