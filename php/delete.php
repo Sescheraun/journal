@@ -3,8 +3,6 @@
     **                                   Header                                    **
     **                                and Includes                                 **
     ********************************************************************************/        
-
-
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     header('Access-Control-Allow-Methods: PUT');
@@ -27,17 +25,14 @@
     $subject = new Subject($db);
 
     /********************************************************************************
-    **                       Get and add the data to the objects                   **
+    **                     Get and add the data to the objects                     **
     ********************************************************************************/ 
-
     $id = $_POST["id"];
-
     $journal->id = $id;
 
     /********************************************************************************
     **                     process the data into the Database                      **
     ********************************************************************************/     
-
     if ($journal->delete()) {
         echo json_encode('{"data":{"result":"Post was deleted"}}');
     } else {
