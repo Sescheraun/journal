@@ -47,9 +47,7 @@
                     
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "newPostTopic" class = "float-right">Topics<select name = "newPostTopic" id = "newPostTopic"></select></label>
-                            <br /><br />
-                            <button id = "addNewPost" class = "btn float-right">Submit</button>
+                            <label for = "newPostTopic" class = "float-right">Select Topic <select name = "newPostTopic" id = "newPostTopic"></select></label>
                         </div>
 
                         <div class = "col-sm-8 float-right">
@@ -58,23 +56,68 @@
                                                
                     </div>
                     <div class = "row text-center">
-                        
+                        <div class = "col-sm-12 text-center"><button id = "addNewPost" class = "btn">Submit</button></div>
                     </div>
                 </div>
 
                 <div id="update" class="container-fluid tab-pane fade"><br>
-                    <h3>Update an existing journal entry</h3>
-                    <p>This page will allow you to flip thrugh the entries and make any edits you want to make in order to update the entry.  It will share some functionally with the read tab.</p>
+                    <h3>Update a journal entry</h3>
+
+                    <div class = "row">
+                        <div class = "col-sm-4" >
+                            <label for = "updatePostTopic" class = "float-right">Topics<select name = "updatePostTopic" id = "updatePostTopic"></select></label>
+                            <br /><br />
+                            
+                        </div>
+
+                        <div class = "col-sm-8 float-right">
+                            <textarea id = "updatePostContent" class = " col-12" ></textarea>
+                        </div>
+
+                    </div>
+                    <div class = "row text-center">
+                        <div class = "col-sm-4 float-left"><button id = "updatePostLeft" class = "btn"><<</button></div>
+                        <div class = "col-sm-4 text-center"><button id = "updatePost" class = "btn">Update</button></div>
+                        <div class = "col-sm-4 float-right"><button id = "updatePostRight" class = "btn">>></button></div>
+                    </div>
                 </div>
 
                 <div id="read" class="container-fluid tab-pane fade"><br>
-                    <h3>Displaying journal entries</h3>
-                    <p>The read tab will simply let you browse all the entries.</p>
+                    <h3>Read the journal entries.</h3>
+
+                    <div class = "row">
+                        <div class = "col-sm-4" >
+                            <label for = "readPostTopic" class = "float-right">Topic<span name = "readPostTopic" id = "readPostTopic"></span></label>
+                            <br /><br />
+                            
+                        </div>
+
+                        <div id = "readPostContent" class = "col-sm-8 float-right">
+                        </div>
+
+                    </div>
+                    <div class = "row text-center">
+                        <div class = "col-sm-6 float-left"><button id = "readPostLeft" class = "btn"><<</button></div>
+                        <div class = "col-sm-6 float-right"><button id = "readPostRight" class = "btn">>></button></div>
+                    </div>
+
                 </div>
                 
                 <div id="delete" class="container-fluid tab-pane fade"><br>
                     <h3>Select entry to delete</h3>
-                    <p>Also sharing some functionality with the read tabe, the controles to delete an entry will exist here.</p>
+                    <div class = "row">
+                        <div class = "col-sm-4" >
+                            <label for = "deletePostTopic" class = "float-right">Topic<span name = "deletePostTopic" id = "deletePostTopic"></span></label>
+                        </div>  
+                        
+                        <div id = "deletePostContent" class = "col-sm-8 float-right"></div>  
+                    </div>
+
+                    <div class = "row text-center">
+                        <div class = "col-sm-4 float-left"><button id = "deletePostLeft" class = "btn"><<</button></div>
+                        <div class = "col-sm-4 text-center"><button id = "deletePost" class = "btn">Delete</button></div>
+                        <div class = "col-sm-4 float-right"><button id = "deletePostRight" class = "btn">>></button></div>
+                    </div>                
                 </div>
             </div>
         
