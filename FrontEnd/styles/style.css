@@ -33,9 +33,9 @@ div.row {
 
 label {
     font-weight: 900;
-    font-size: 125%;
+    font-size: 150%;
 }
-select {
-    font-size: 90%;
+select, span#readPostTopic {
+    font-size: 75%;
     padding: 2px;
 }
