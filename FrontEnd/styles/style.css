@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    background-position: center botto,;
+    background-position: center bottom;
     margin: 0;
     padding: 0;
 }
@@ -13,17 +13,29 @@ div.jumbotron {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    background-position: center botto,;
+    background-position: center bottom;
 
 }
 
 div.container {
-    background-color: rgba(153, 50, 204, .2) ;
+    background-color: rgba(153, 50, 204, .4);    
 }
 
 ul.nav {
-    background-color: rgba(15, 15, 95, 0.8);
+    background-color: rgba(15, 15, 95, 0.6);
     color: silver;
     }
 
+div.row {
+    padding: .5%; 
+}
 
+
+label {
+    font-weight: 900;
+    font-size: 125%;
+}
+select {
+    font-size: 90%;
+    padding: 2px;
+}
