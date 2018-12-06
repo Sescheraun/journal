@@ -154,6 +154,7 @@
 
             $this->subject = htmlspecialchars(strip_tags($this->subject));
             $this->entry = htmlspecialchars(strip_tags($this->entry));
+            $this->id = htmlspecialchars(strip_tags($this->id));
 
             $stmt -> bindParam(':subject', $this->subject);
             $stmt -> bindParam(':entry', $this->entry);
@@ -165,6 +166,31 @@
             return false;
         }
 
+        /********************************************************************************
+        **                                Delete Methods                               **
+        ********************************************************************************/        
+
+        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
+
+        public function delete() {
+
+            $query = 'UPDATE '
+                . JOURNAL_TABLE 
+                . ' SET '
+                . ' isDeleted = 1'
+                . ' WHERE'
+                . ' id = :id';
+            
+            $stmt = $this->conn->prepare($query);
+
+            $this->id = htmlspecialchars(strip_tags($this->id));
+
+            $stmt -> bindParam(':id', $this->id);
     
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
 }
 ?>
