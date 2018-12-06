@@ -1,7 +1,7 @@
 (($) => { 
     var journalIndex = 0;
-
     var journal = {};
+
     let createURL = "/journal/php/create.php";
     let updateURL = "/journal/php/update.php";
     let readURL = "/journal/php/read.php";
