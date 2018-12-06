@@ -107,7 +107,7 @@
             let selectedOption = $("#updatePostTopic option:selected");
             let subjectId = selectedOption.attr("data-id");
             let post = $.trim($("#updatePostContent").val());
-            let target = journalIndex + 1;
+            let target = journal[journalIndex].id;
 
             let postData = "subject=" + subjectId + "&entry=" + post + "&id=" + target;
             $.ajax({ 
@@ -118,6 +118,8 @@
                 , success: function(responseText) {
                     let data = JSON.parse(responseText);
                     console.log(data.data.result);
+                    console.log(target);
+                    console.log(postData);
 
                     //todo: code needs to go here to put the confirmation on the page
                     //and reset the form to empty.  Maybe a picture of a pony pointing
