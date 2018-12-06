@@ -1,4 +1,9 @@
 (($) => { 
+    var left = -1;
+    var right = 1;
+    var journalIndex = 0;
+
+    var journal = {};
     let readURL = "/journal/php/read.php";
     let postURL = "/journal/php/create.php";
     
@@ -8,7 +13,7 @@
     ********************************************************************************/
     $(document).ready( function() {
         // Load Categories
-        $.ajax(
+            $.ajax(
             {
             url: readURL
 
@@ -26,37 +31,38 @@
                 let reply = {};
                 reply = response.data;
                 let topics = $("#newPostTopic");
+                let updateTopics = $("#updatePostTopic");
                 
                 for(loop = 0; loop < reply.length; loop++){
                     
                     let category = reply[loop].category;
                     let ID = reply[loop].id;
-                    
-                    let subject = $("<option>").text(reply[loop].category).attr("data-id", ID);
 
+                    let subject = $("<option>").text(reply[loop].category).attr("data-id", ID);
+                    let updateSubject = $("<option>").text(reply[loop].category).attr("data-id", ID);
                     subject.appendTo(topics);
+                    updateSubject.appendTo(updateTopics);
+                    }
                 }
-            }
-            , error:function(xhr, status, error) {
-                console.log("ERROR: " + xhr.responseText);
-            }
-            , complete:function() {
-                console.log("Call complete");
-            }
-        })
+    
+                , error:function(xhr, status, error) {
+                    console.log("ERROR: " + xhr.responseText);
+                }
+    
+                , complete:function() {
+                    
+                }
+            })
 
         /********************************************************************************
         **                        Get all the journal entries                          **
         ********************************************************************************/
-    $(document).ready( function() {
         // Load Categories
         $.ajax(
             {
             url: readURL
 
             , type:"GET"
-
-            , data: "table=subject"
             
             , beforeSend: function() {
                 console.log("Sending ajax reguest");
@@ -65,22 +71,15 @@
 
             , success:function(response) {
                 // console.log(response);
-                let reply = {};
-                reply = response.data;
-                let entries = {};
-                
-                for(loop = 0; loop < reply.length; loop++){
-                    
-                    let categorysubject = reply[loop].subject;
-                    let ID = reply[loop].id;
-                    
-                    let subject = $("<option>").text(reply[loop].category).attr("data-id", ID);
-
-                    subject.appendTo(topics);
-                }
+                journal = response.data;
+                console.log(journal);
+                loadJournal();
             }
             , error:function(xhr, status, error) {
-                console.log("ERROR: " + xhr.responseText);
+                console.log("ERROR:");
+                console.log(xhr.responseText);
+                console.log(status);
+                console.log(error);
             }
             , complete:function() {
                 console.log("Call complete");
@@ -122,22 +121,41 @@
     
                 , complete:function() {
                     console.log("Call complete");
-                }
-                
-                
-                
+                }          
             })
         })
-
-
+        $(".PostLeft").on("click", function() {
+            shiftJournal(-1);
+        })
+    
+    
+        $(".PostRight").on("click", function() {
+            shiftJournal(1);
+        })
     })
 
-    
+    shiftJournal = (direction) => {
+        journalIndex += direction;
+        console.log(journalIndex);
+        if (journalIndex >= journal.length) journalIndex = 0;
+        if (journalIndex < 0) journalIndex = journal.length - 1;
+        console.log(journalIndex);
+        loadJournal();
+    }
 
+    loadJournal = () => {
+        //Delima, how do I replace the content when I don't know what it will be.
+        console.log(journalIndex);
+        $("#readPostTopic").empty(journal[journalIndex].subject);
+        $("#readPostTopic").append(journal[journalIndex].subject);
 
-
-
-
-
+        $("#updatePostTopic").val(journal[journalIndex].subject);
+ 
+        $("#updatePostContent").empty(journal[journalIndex].entry)
+        $(".id").empty("ID # " + journal[journalIndex].id);
+ 
+        $("#updatePostContent").append(journal[journalIndex].entry)
+        $(".id").append("ID # " + journal[journalIndex].id);
+    }
 
 })(jQuery)
