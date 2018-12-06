@@ -31,9 +31,6 @@
         /********************************************************************************
         **                                Creat Methods                                **
         ********************************************************************************/        
-
-        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
-
         public function create() {
 
             $query = 'INSERT INTO '
@@ -136,9 +133,6 @@
         /********************************************************************************
         **                                Update Methods                               **
         ********************************************************************************/        
-
-        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
-
         public function update() {
 
             $query = 'UPDATE '
@@ -169,15 +163,12 @@
         /********************************************************************************
         **                                Delete Methods                               **
         ********************************************************************************/        
-
-        // https://www.youtube.com/watch?v=-nq4UbD0NT8&list=PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo&index=2
-
         public function delete() {
 
             $query = 'UPDATE '
                 . JOURNAL_TABLE 
                 . ' SET '
-                . ' isDeleted = 1'
+                . ' isDeleted = TRUE'
                 . ' WHERE'
                 . ' id = :id';
             
@@ -186,7 +177,7 @@
             $this->id = htmlspecialchars(strip_tags($this->id));
 
             $stmt -> bindParam(':id', $this->id);
-    
+
             if ($stmt->execute()) {
                 return true;
             }
