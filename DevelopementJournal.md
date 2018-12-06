@@ -10,3 +10,8 @@ They are both kind of needed to test the project but one has to be the starting 
 
 # Day 3 and 4 (posted December 5 2018)
 The first of the holidays this season really did proved to be rather relaasing.  I didn't get anything constructive done, but I do feel a little more relaxed.  the few weeks since then have been anything but,  I had some issues with my VM needing to be restored from a backup that proved to bbe ancient and did not have any of my previous work on this project.  Github had all the code, but I needed to rebuild the database and go some of the field names wrong.  I have, however got the server and the client speaking agian and now I am able to save new entries on the data base. (Yay level = Fluttershy)
+
+# Day 6 (December 6)
+I think I may be willing to call this version 0.9.  The basic functionality of the CURD model is all working as intended.  The interface needs a little more work and I want to ad some security so that only I can add, update or delete the postsand that will be version 1.0.
+
+Future plans:  v 1.1: Search for posts by topic.  v n: Multiple users, implements conversation threads.
