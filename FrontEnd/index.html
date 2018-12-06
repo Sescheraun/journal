@@ -47,7 +47,7 @@
                     
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "newPostTopic" class = "float-right">Select Topic <select name = "newPostTopic" id = "newPostTopic"></select></label>
+                            <label for = "newPostTopic" class = "float-right">Topics <select name = "newPostTopic" id = "newPostTopic"></select></label>
                         </div>
 
                         <div class = "col-sm-8 float-right">
@@ -61,11 +61,11 @@
                 </div>
 
                 <div id="update" class="container-fluid tab-pane fade"><br>
-                    <h3>Update a journal entry</h3>
+                    <h3>Update a journal entry <span class = "id"></span></h3>
 
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "updatePostTopic" class = "float-right">Topics<select name = "updatePostTopic" id = "updatePostTopic"></select></label>
+                            <label for = "updatePostTopic" class = "float-right">Topics <select name = "updatePostTopic" id = "updatePostTopic"></select></label>
                             <br /><br />
                             
                         </div>
@@ -76,18 +76,18 @@
 
                     </div>
                     <div class = "row text-center">
-                        <div class = "col-sm-4 float-left"><button id = "updatePostLeft" class = "btn"><<</button></div>
+                        <div class = "col-sm-4 float-left"><button id = "updatePostLeft" class = "btn PostLeft"><<</button></div>
                         <div class = "col-sm-4 text-center"><button id = "updatePost" class = "btn">Update</button></div>
-                        <div class = "col-sm-4 float-right"><button id = "updatePostRight" class = "btn">>></button></div>
+                        <div class = "col-sm-4 float-right"><button id = "updatePostRight" class = "btn PostRight">>></button></div>
                     </div>
                 </div>
 
                 <div id="read" class="container-fluid tab-pane fade"><br>
-                    <h3>Read the journal entries.</h3>
+                    <h3>Read the journal entries: <span class = "id"></span></h3>
 
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "readPostTopic" class = "float-right">Topic<span name = "readPostTopic" id = "readPostTopic"></span></label>
+                            <label for = "readPostTopic" class = "float-right">Topic:<span name = "readPostTopic" id = "readPostTopic"></span></label>
                             <br /><br />
                             
                         </div>
@@ -97,14 +97,14 @@
 
                     </div>
                     <div class = "row text-center">
-                        <div class = "col-sm-6 float-left"><button id = "readPostLeft" class = "btn"><<</button></div>
-                        <div class = "col-sm-6 float-right"><button id = "readPostRight" class = "btn">>></button></div>
+                        <div class = "col-sm-6 float-left"><button id = "readPostLeft" class = "btn PostLeft"><<</button></div>
+                        <div class = "col-sm-6 float-right"><button id = "readPostRight" class = "btn PostRight">>></button></div>
                     </div>
 
                 </div>
                 
                 <div id="delete" class="container-fluid tab-pane fade"><br>
-                    <h3>Select entry to delete</h3>
+                    <h3>Select entry to delete: <span class = "id"></span></h3>
                     <div class = "row">
                         <div class = "col-sm-4" >
                             <label for = "deletePostTopic" class = "float-right">Topic<span name = "deletePostTopic" id = "deletePostTopic"></span></label>
@@ -114,9 +114,9 @@
                     </div>
 
                     <div class = "row text-center">
-                        <div class = "col-sm-4 float-left"><button id = "deletePostLeft" class = "btn"><<</button></div>
+                        <div class = "col-sm-4 float-left"><button id = "deletePostLeft" class = "btn PostLeft"><<</button></div>
                         <div class = "col-sm-4 text-center"><button id = "deletePost" class = "btn">Delete</button></div>
-                        <div class = "col-sm-4 float-right"><button id = "deletePostRight" class = "btn">>></button></div>
+                        <div class = "col-sm-4 float-right"><button id = "deletePostRight" class = "btn PostRight">>></button></div>
                     </div>                
                 </div>
             </div>
