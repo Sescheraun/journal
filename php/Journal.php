@@ -121,7 +121,7 @@
             .    "category c ON p.subject = c.id"
             . $whereClause
             . "ORDER by "
-            .   "p.id DESC";
+            .   "p.id ASC";
             
             $stmt = $this->conn->prepare($query);
 
