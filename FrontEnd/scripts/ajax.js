@@ -57,7 +57,117 @@
         /********************************************************************************
         **                        Get all the journal entries                          **
         ********************************************************************************/
-        // Load Categories
+        pullJournal();
+
+
+        /********************************************************************************
+        **                              Post a new emtry                               **
+        ********************************************************************************/
+        $("#addNewPost").on("click", function() {
+            let selectedOption = $("#newPostTopic option:selected");
+            let id = selectedOption.attr("data-id");
+            let post = $.trim($("#newPostContent").val());
+
+            let postData = "subject=" + id + "&entry=" + post;
+            
+            $.ajax({ 
+                url:postURL
+                , method: "POST"
+                , data: postData
+                , dataType: "JSON"
+                , success: function(responseText) {
+                    let data = JSON.parse(responseText);
+                    console.log(data.data.result);
+
+                    //todo: code needs to go here to put the confirmation on the page
+                    //and reset the form to empty.  Maybe a picture of a pony pointing
+                    //at the message.
+                    pullJournal();
+
+                }, error:function(xhr, status, error) {
+                    console.log("ERROR:");
+                    console.log(xhr.responseText);
+                    console.log(postData);
+                    console.log(status);
+                    console.log(error);
+
+                    //TODO: put some code here to put the failure on the webpage
+                }
+    
+                , complete:function() {
+                    console.log("Call complete");
+                }          
+            })
+        })
+
+    /********************************************************************************
+    **                              Update a journal emtry                         **
+    ********************************************************************************/
+        $("#updatePost").on("click", function() {
+            let target = journalIndex + 1;
+            console.log("Post number " + target + ", you will be upgraded.");
+        })
+
+    /********************************************************************************
+     **                              Delete a journal emtry                         **
+    ********************************************************************************/
+        $("#deletePost").on("click", function() {
+            let target = journalIndex + 1;
+            console.log("The order to delete post with the id of " + target + " has been issued!");
+        })
+
+
+    /********************************************************************************
+    **                                 Utility Methods                             **
+    ********************************************************************************/
+        $(".PostLeft").on("click", function() {
+            shiftJournal(-1);
+        })
+    
+    
+        $(".PostRight").on("click", function() {
+            shiftJournal(1);
+        })
+    }) //The document.ready function ends here.
+
+
+    /********************************************************************************
+    **                         Changes the index of the journal                    **
+    **                               based on user input                           **
+    ***********************^^********************************************************/
+
+
+    shiftJournal = (direction) => {
+        journalIndex += direction;
+        console.log(journalIndex);
+        if (journalIndex >= journal.length) journalIndex = 0;
+        if (journalIndex < 0) journalIndex = journal.length - 1;
+        console.log(journalIndex);
+        loadJournal();
+    }
+
+    /****************************************************************************/
+    /**  Load the elements of journal into the page as the user browses them   **/
+    /****************************************************************************/
+    loadJournal = () => {
+        //Delima, how do I replace the content when I don't know what it will be.
+        console.log(journalIndex);
+        $(".postTopic").empty(journal[journalIndex].subject);
+        $(".postTopic").append(journal[journalIndex].subject);
+
+        $("#updatePostTopic").val(journal[journalIndex].subject);
+ 
+        $(".postContent").empty(journal[journalIndex].entry)
+        $(".postContent").append(journal[journalIndex].entry)
+        
+        $(".id").empty("ID # " + journal[journalIndex].id);
+        $(".id").append("ID # " + journal[journalIndex].id);
+    }
+    /********************************************************************************
+    **                        Get all the journal entries                          **
+    ********************************************************************************/
+        
+    pullJournal = () => {
         $.ajax(
             {
             url: readURL
@@ -85,77 +195,6 @@
                 console.log("Call complete");
             }
         })
-
-        /********************************************************************************
-        **                              Post a new emtry                               **
-        ********************************************************************************/
-        $("#addNewPost").on("click", function() {
-            let selectedOption = $("#newPostTopic option:selected");
-            let id = selectedOption.attr("data-id");
-            let post = $.trim($("#newPostContent").val());
-
-            let postData = "subject=" + id + "&entry=" + post;
-            
-            $.ajax({ 
-                url:postURL
-                , method: "POST"
-                , data: postData
-                , dataType: "JSON"
-                , success: function(responseText) {
-                    let data = JSON.parse(responseText);
-                    console.log(data.data.result);
-
-                    //todo: code needs to go here to put the confirmation on the page
-                    //and reset the form to empty.  Maybe a picture of a pony pointing
-                    //at the message.
-
-                }, error:function(xhr, status, error) {
-                    console.log("ERROR:");
-                    console.log(xhr.responseText);
-                    console.log(postData);
-                    console.log(status);
-                    console.log(error);
-
-                    //TODO: put some code here to put the failure on the webpage
-                }
-    
-                , complete:function() {
-                    console.log("Call complete");
-                }          
-            })
-        })
-        $(".PostLeft").on("click", function() {
-            shiftJournal(-1);
-        })
-    
-    
-        $(".PostRight").on("click", function() {
-            shiftJournal(1);
-        })
-    })
-
-    shiftJournal = (direction) => {
-        journalIndex += direction;
-        console.log(journalIndex);
-        if (journalIndex >= journal.length) journalIndex = 0;
-        if (journalIndex < 0) journalIndex = journal.length - 1;
-        console.log(journalIndex);
-        loadJournal();
-    }
-
-    loadJournal = () => {
-        //Delima, how do I replace the content when I don't know what it will be.
-        console.log(journalIndex);
-        $("#readPostTopic").empty(journal[journalIndex].subject);
-        $("#readPostTopic").append(journal[journalIndex].subject);
-
-        $("#updatePostTopic").val(journal[journalIndex].subject);
- 
-        $("#updatePostContent").empty(journal[journalIndex].entry)
-        $(".id").empty("ID # " + journal[journalIndex].id);
- 
-        $("#updatePostContent").append(journal[journalIndex].entry)
-        $(".id").append("ID # " + journal[journalIndex].id);
     }
 
 })(jQuery)
