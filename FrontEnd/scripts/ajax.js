@@ -67,8 +67,14 @@
             let selectedOption = $("#newPostTopic option:selected");
             let id = selectedOption.attr("data-id");
             let post = $.trim($("#newPostContent").val());
+            let userName = $("#userNameNewPost").val();
+            let password = $("#passwordNewPost").val();
 
-            let postData = "subject=" + id + "&entry=" + post;
+            let postData = "subject=" + id 
+                         + "&entry=" + post
+                         + "&userName=" + userName 
+                         + "&password=" + password
+                         ;
             
             $.ajax({ 
                 url:createURL
@@ -108,8 +114,14 @@
             let subjectId = selectedOption.attr("data-id");
             let post = $.trim($("#updatePostContent").val());
             let target = journal[journalIndex].id;
+            let userName = $("#userNameUpdatePost").val();
+            let password = $("#passwordUpdatePost").val();
 
-            let postData = "subject=" + subjectId + "&entry=" + post + "&id=" + target;
+            let postData = "subject=" + subjectId 
+                         + "&entry=" + post 
+                         + "&id=" + target 
+                         + "&userName=" + userName 
+                         + "&password=" + password;
             $.ajax({ 
                 url:updateURL
                 , method: "POST"
@@ -147,17 +159,17 @@
     ********************************************************************************/
         $("#deletePost").on("click", function() {
             let target = journal[journalIndex].id;
+            let userName = $("#userNameDeletePost").val();
+            let password = $("#passwordDeletePost").val();
             console.log(target);
 
-            let postData = "id=" + target;
+            let postData = "id=" + target + "&userName=" + userName + "&password=" + password;
             $.ajax({ 
-                url:deleteURL
-                , method: "GET"
+                url: deleteURL
+                , method: "POST"
                 , data: postData
                 , dataType: "JSON"
                 , success: function(responseText) {
-                    console.log(deleteURL);
-                    console.log(postData);
 
                     let data = JSON.parse(responseText);
                     console.log(data.data.result);
