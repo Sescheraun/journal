@@ -13,6 +13,7 @@
     include_once("Database.php");
     include_once('Journal.php');
     include_once('Subject.php');
+    include_once('User.php');
 
     /********************************************************************************
     **                       Initialize The Database connection                    **
@@ -25,11 +26,17 @@
     ********************************************************************************/ 
     $journal = new Journal($db);
     $subject = new Subject($db);
+    $user = new User($db);
+
+    /********************************************************************************
+    **                       Validate the user's credentials                       **
+    ********************************************************************************/ 
+    $user->userName = $_POST["userName"];
+    $user->password = $_POST["password"];
 
     /********************************************************************************
     **                       Get and add the data to the objects                   **
     ********************************************************************************/ 
-
     $subject = $_POST["subject"];
     $entry = $_POST["entry"];
 
@@ -39,10 +46,13 @@
     /********************************************************************************
     **                     process the data into the Database                      **
     ********************************************************************************/     
-
-    if ($journal->create()) {
-        echo json_encode('{"data":{"result":"Post was saved"}}');
+    if ($user->readUsers()){
+        if ($journal->create()) {
+            echo json_encode('{"data":{"result":"Post was created"}}');
+        } else {
+            echo json_encode('{"data":{"result":"Post was not created"}}');
+        }
     } else {
-        echo json_encode('{"data":{"ERROR":"Post was not saved"}}');
+        echo json_encode('{"data":{"result":"Bad credentials.  Post was not created"}}');
     }
 ?>
