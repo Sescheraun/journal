@@ -13,6 +13,7 @@
     include_once("Database.php");
     include_once('Journal.php');
     include_once('Subject.php');
+    include_once("user.php");
 
     /********************************************************************************
     **                       Initialize The Database connection                    **
@@ -25,11 +26,17 @@
     ********************************************************************************/ 
     $journal = new Journal($db);
     $subject = new Subject($db);
+    $user = new User($db);
+
+    /********************************************************************************
+    **                       Validate the user's credentials                       **
+    ********************************************************************************/ 
+    $user->userName = $_POST["userName"];
+    $user->password = $_POST["password"];
 
     /********************************************************************************
     **                       Get and add the data to the objects                   **
     ********************************************************************************/ 
-
     $id = $_POST["id"];
     $subject = $_POST["subject"];
     $entry = $_POST["entry"];
@@ -40,11 +47,14 @@
 
     /********************************************************************************
     **                     process the data into the Database                      **
-    ********************************************************************************/     
-
-    if ($journal->update()) {
-        echo json_encode('{"data":{"result":"Post was updated"}}');
+    ********************************************************************************/  
+    if($user->readUsers()) {
+        if ($journal->update()) {
+            echo json_encode('{"data":{"result":"Post was updated"}}');
+        } else {
+            echo json_encode('{"data":{"result":"Post was not updated"}}');
+        }
     } else {
-        echo json_encode('{"data":{"ERROR":"Post was not not"}}');
+        echo json_encode('{"data":{"result":"Bad credentials.  Post was not updated"}}');
     }
 ?>
