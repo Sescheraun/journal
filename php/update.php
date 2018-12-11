@@ -13,21 +13,24 @@
     include_once("Database.php");
     include_once('Journal.php');
     include_once('Subject.php');
-    include_once("user.php");
+    include_once("User.php");
 
     /********************************************************************************
     **                       Initialize The Database connection                    **
     ********************************************************************************/        
     $dBase = new Database();
     $db = $dBase->getConnection();
+    //echo "Initialize Database";
 
     /********************************************************************************
     **                          Initialize The table objects                       **
     ********************************************************************************/ 
     $journal = new Journal($db);
+    //echo "journal";
     $subject = new Subject($db);
+    //echo "subject";
     $user = new User($db);
-
+    //echo "objects made";
     /********************************************************************************
     **                       Validate the user's credentials                       **
     ********************************************************************************/ 
