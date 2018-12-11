@@ -24,66 +24,228 @@
             <h2>Code Pony's Journal</h2>
             <br>
             <!-- Nav pills -->
-            <ul class="nav nav-pills nav-justified" role="tablist">
+            <ul class="nav nav-pills nav-justified" 
+                 role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="pill" href="#create">Create</a>
+                    <a class="nav-link active" 
+                 data-toggle="pill" 
+                        href="#create">
+                        Create
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#update">Update</a>
+                    <a class="nav-link" 
+                 data-toggle="pill" 
+                        href="#update">
+                        Update
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#read">Read</a>
+                    <a class="nav-link"
+                 data-toggle="pill" 
+                        href="#read">
+                        Read
+                    </a>
                 </li>
-                    <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#delete">Delete</a>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                 data-toggle="pill" 
+                        href="#delete">
+                        Delete
+                    </a>
                 </li>
+
             </ul>
         </div>    
             <!-- Tab panes -->
             <div class="tab-content">
+                <!------------------------------------------------------------------->
+                <!--              This is the html for the Update tab              -->
+                <!------------------------------------------------------------------->
 
                 <div id="create" class="container-fluid tab-pane active"><br>
                     <h3>Create a new journal entry</h3>
-                    
+
+                <!------------------------------------------------------------------->
+                <!--                Views section for the Create tab               -->
+                <!------------------------------------------------------------------->
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "newPostTopic" class = "float-right">Topics <select name = "newPostTopic" id = "newPostTopic"></select></label>
+
+                            <label for = "newPostTopic" 
+                                 class = "float-right">
+                                 Topics 
+
+                                <select name = "newPostTopic" 
+                                          id = "newPostTopic">
+                                </select>
+                            </label>
                         </div>
 
                         <div class = "col-sm-8 float-right">
-                            <textarea rows = "10" id = "newPostContent" class = "col-12" ></textarea>
-                        </div>
-                                               
+                            <textarea rows = "10" 
+                                        id = "newPostContent" 
+                                     class = "border border-primary col-12" ></textarea>
+                        </div>                      
                     </div>
+                    <br /><br />
+
+                    <!------------------------------------------------------------------->
+                    <!--              Controls section for the Create tab              -->
+                    <!------------------------------------------------------------------->
+
                     <div class = "row text-center">
-                        <div class = "col-sm-12 text-center"><button id = "addNewPost" class = "btn">Submit</button></div>
+                        <h3 class = "col-sm-12 text-center">
+                            User name and password are required to add a post:
+                        </h3>
+
+                        <label for="userName" 
+                            class = "col-md-2 foat-right text-right">
+
+                            <h4>
+                                User Name:
+                            </h4>
+                        </label>
+
+                        <input id="userNameNewPost" 
+                             type="text" 
+                            class="form-control col-md-4 float-right" 
+                             name="userName" />
+                        
+                        <label for="userName" 
+                            class = "col-md-2 foat-right text-right">
+
+                            <h4>
+                                Password:
+                            </h4>
+                        </label>
+
+                        <input  id="passwordNewPost" 
+                              type="password" 
+                             class="form-control col-md-4 float-right" 
+                              name="userName"/>
+                    </div>
+
+                    <div class = "row text-center">
+                        <div class = "col-sm-12 text-center">
+                            <button id = "addNewPost" 
+                                 class = "btn">
+                                Submit
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                
+                <!------------------------------------------------------------------->
+                <!--              This is the html for the Update tab              -->
+                <!------------------------------------------------------------------->
 
                 <div id="update" class="container-fluid tab-pane fade"><br>
                     <h3>Update a journal entry <span class = "id"></span></h3>
-
+                <!------------------------------------------------------------------->
+                <!--                Viewss section for the Update tab              -->
+                <!------------------------------------------------------------------->
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "updatePostTopic" class = "float-right">Topics <select name = "updatePostTopic" id = "updatePostTopic"></select></label>
+                            <label for = "updatePostTopic" 
+                                 class = "float-right">
+                                Topics
+
+                                <select name = "updatePostTopic" 
+                                          id = "updatePostTopic">
+                                </select>
+                            </label>
                             <br /><br />
-                            
                         </div>
 
                         <div class = "col-sm-8 float-right">
-                            <textarea rows = "10" id = "updatePostContent" class = "col-12" ></textarea>
+                            <textarea rows = "10" 
+                                        id = "updatePostContent" 
+                                     class = "border border-primary postContent col-12" ></textarea>
+                        </div>
+                    </div>
+                    
+                    <br /><br />
+                    <!------------------------------------------------------------------->
+                    <!--              Controls section for the Update tab              -->
+                    <!------------------------------------------------------------------->
+                    <div class = "row text-center">
+                        <h3 class = " col-sm-12 text-center">
+                            User name and password are required to edit a post:
+                        </h3>
+
+                        <label for="userName" 
+                            class = "col-md-2 foat-right text-right">
+                            <h4>
+                                User Name:
+                            </h4>
+                        </label>
+
+                        <input type="text" 
+                              class="form-control col-md-4 float-right" 
+                               name="userName" 
+                                 id="userNameUpdatePost" />
+                        
+                        <label for="userName" 
+                             class="col-md-2 foat-right text-right">
+                            <h4>
+                                Password:
+                            </h4>
+                        </label>
+
+                        <input type="password" 
+                              class="form-control col-md-4 float-right" 
+                               name="userName" 
+                                 id="passwordUpdatePost" />
+                    </div>
+    
+                    <div class = "row text-center">
+
+                        <div class = "col-sm-4 float-left">
+
+                            <button id = "updatePostLeft" 
+                                 class = "btn PostLeft">
+                                <<
+                            </button>
                         </div>
 
-                    </div>
-                    <div class = "row text-center">
-                        <div class = "col-sm-4 float-left"><button id = "updatePostLeft" class = "btn PostLeft"><<</button></div>
-                        <div class = "col-sm-4 text-center"><button id = "updatePost" class = "btn">Update</button></div>
-                        <div class = "col-sm-4 float-right"><button id = "updatePostRight" class = "btn PostRight">>></button></div>
+                        <div class = "col-sm-4 text-center">
+
+                            <button id = "updatePost" 
+                                 class = "btn">
+                                Update Post
+                            </button>
+                        </div>
+
+                        <div class="col-sm-4 float-right">
+
+                            <button id="updatePostRight" 
+                                 class="btn PostRight">
+                                >>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div id="read" class="container-fluid tab-pane fade"><br>
-                    <h3>Read the journal entries: <span class = "id"></span></h3>
+                <!------------------------------------------------------------------->
+                <!--                This is the html for the Read tab              -->
+                <!------------------------------------------------------------------->
+
+                <div id="read" 
+                  class="container-fluid tab-pane fade">
+
+                <!------------------------------------------------------------------->
+                <!--                  Views section for the Read tab               -->
+                <!------------------------------------------------------------------->
+                    <br />
+                    <h3>Read the journal entries:
+                        <span class = "id">
+                        </span>
+                    </h3>
 
                     <div class = "row">
                         <div class = "col-sm-4" >
@@ -92,36 +254,132 @@
                             
                         </div>
 
-                        <div id = "readPostContent" class = "postContent col-sm-8 float-right">
+                        <div id = "readPostContent" 
+                          class = "border border-primary postContent col-sm-8 float-right">
                         </div>
 
                     </div>
-                    <div class = "row text-center">
-                        <div class = "col-sm-6 float-left"><button id = "readPostLeft" class = "btn PostLeft"><<</button></div>
-                        <div class = "col-sm-6 float-right"><button id = "readPostRight" class = "btn PostRight">>></button></div>
-                    </div>
 
+                    <!------------------------------------------------------------------->
+                    <!--               Controls section for the Read tab               -->
+                    <!------------------------------------------------------------------->
+
+                    <div class = "row text-center">
+
+                        <div class = "col-sm-6 float-left">
+
+                            <button id = "readPostLeft" 
+                                 class = "btn PostLeft">
+                                <<
+                            </button>
+                        </div>
+
+                        <div class = "col-sm-6 float-right">
+
+                            <button id = "readPostRight" 
+                                 class = "btn PostRight">
+                                >>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 
+                
+                <!------------------------------------------------------------------->
+                <!--               This is the html for the Delete tab             -->
+                <!------------------------------------------------------------------->
                 <div id="delete" class="container-fluid tab-pane fade"><br>
-                    <h3>Select entry to delete: <span class = "id"></span></h3>
+                <!------------------------------------------------------------------->
+                <!--                 Views section for the Delete tab              -->
+                <!------------------------------------------------------------------->
+
+                    <h3>Select entry to delete:
+                        <span class = "id">
+                        </span>
+                    </h3>
+
                     <div class = "row">
                         <div class = "col-sm-4" >
-                            <label for = "deletePostTopic" class = "float-right">Topic: <span name = "deletePostTopic" class = "postTopic" id = "deletePostTopic"></span></label>
+
+                            <label for = "deletePostTopic" 
+                                 class = "float-right">
+                                Topic: 
+
+                                <span name = "deletePostTopic" 
+                                     class = "postTopic" 
+                                        id = "deletePostTopic">
+                                </span>
+                            </label>
                         </div>  
                         
-                        <div id = "deletePostContent" class = "postContent col-sm-8 float-right"></div>  
+                        <div id = "deletePostContent" 
+                          class = "border border-primary postContent col-sm-8 float-right">
+                        </div>  
                     </div>
+                    
+                    <!------------------------------------------------------------------->
+                    <!--              Controls section for the Delete tab              -->
+                    <!------------------------------------------------------------------->
 
                     <div class = "row text-center">
-                        <div class = "col-sm-4 float-left"><button id = "deletePostLeft" class = "btn PostLeft"><<</button></div>
-                        <div class = "col-sm-4 text-center"><button id = "deletePost" class = "btn">Delete</button></div>
-                        <div class = "col-sm-4 float-right"><button id = "deletePostRight" class = "btn PostRight">>></button></div>
+                        <hr />
+
+                        <h3 class = "col-sm-12 text-center">
+                            User name and password are required to delete a post:
+                        </h3>
+
+                        <label for="userName" 
+                            class = "col-md-2 foat-right text-right">
+
+                            <h4>
+                                User Name:
+                            </h4>
+                        </label>
+
+                        <input type="text" 
+                              class="form-control col-md-4 float-right" 
+                               name="userName" 
+                                 id="userNameDeletePost" />
+                           
+                        <label for="userName" 
+                            class = "col-md-2 foat-right text-right">
+
+                            <h4>
+                                Password:
+                            </h4>
+                        </label>
+
+                        <input type="password" 
+                              class="form-control col-md-4 float-right" 
+                               name="userName" 
+                                 id="passwordDeletePost" />
+                    </div>
+    
+                    <div class = "row text-center">
+                        <div class = "col-sm-4 float-left">
+
+                            <button id = "deletePostLeft" class = "btn PostLeft">
+                                <<
+                            </button>
+                        </div>
+                       
+                        <div class = "col-sm-4 text-center">
+
+                            <button id = "deletePost" class = "btn">
+                                Delete
+                            </button>
+                        </div>
+                        
+                        <div class = "col-sm-4 float-right">
+
+                            <button id = "deletePostRight" 
+                                 class = "btn PostRight">
+                                >>
+                            </button>
+                        </div>
                     </div>                
                 </div>
             </div>
-        
-    </div>
-
-</body>
+        </div>
+    </body>
 </html>
