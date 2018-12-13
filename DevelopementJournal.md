@@ -15,3 +15,8 @@ The first of the holidays this season really did proved to be rather relaasing. 
 I think I may be willing to call this version 0.9.  The basic functionality of the CURD model is all working as intended.  The interface needs a little more work and I want to ad some security so that only I can add, update or delete the postsand that will be version 1.0.
 
 Future plans:  v 1.1: Search for posts by topic.  v n: Multiple users, implements conversation threads.
+
+# Day 7 - 9 (December 9 - 11)
+With the addition of security, the project is ready to turn in and has been accepted for the internship class.  A few more details needed to added, mostly the program letting the user know what happened with thier posts.  I think that will be 1.1.
+
+Now I need to teach myself how better to use AWS so I can actually put this out on the web to bother people with.
